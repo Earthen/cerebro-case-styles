@@ -1,20 +1,8 @@
 const convert = require('./converter');
 import React from 'react';
 import icon from './icon.png';
+import camelCaseIcon from './camelCase.png';
 
-// export const fn = ({ term, actions, display }) => {
-//     // var search = (searchTerm) => {
-//     //     actions.open(`https://duckduckgo.com/?q=${searchTerm}`);
-//     //     actions.hideWindow();
-//     // };
-
-//     display({
-//         icon: icon,
-//         title: `Search DuckDuckGo For ${term}`,
-//         // onSelect: () => search(term),
-//         // getPreview: () => <Preview query={term} key={term} search={search} />
-//     });
-// };
 export const fn = ({ term, actions, display }) => {
     const match = term.match(/(^convert\s)(.*)/);
     if (match) {
@@ -23,12 +11,13 @@ export const fn = ({ term, actions, display }) => {
         var textToConvert = match[2];
         const onSelect = (event) => {
         };
+        var textToPrint= convert.convertToCamelCase(textToConvert);
         display([
             {
-            icon: icon,
-            title: `camelCase: ${convert.convertToCamelCase(textToConvert)}`,
-            onSelect: () => actions.copyToClipboard(convert.convertToCamelCase(textToConvert)),
-            getPreview: () => convert.convertToCamelCase(textToConvert)
+                icon: camelCaseIcon,
+                title: `camelCase: ${textToPrint}`,
+                onSelect: () => actions.copyToClipboard(convert.convertToCamelCase(textToConvert)),
+                getPreview: () => convert.convertToCamelCase(textToConvert)
             },
             {
                 icon: icon,
@@ -48,7 +37,6 @@ export const fn = ({ term, actions, display }) => {
                 onSelect: () => actions.copyToClipboard(convert.convertToSnakeCase(textToConvert)),
                 getPreview: () => convert.convertToSnakeCase(textToConvert)
             }
-            ]
-        );
+        ]);
     };
 };
