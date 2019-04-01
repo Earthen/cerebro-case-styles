@@ -2,22 +2,22 @@ const convert = require('./converter');
 import React from 'react';
 import icon from './icon.png';
 import camelCaseIcon from './camelCase.png';
+import snakeCaseIcon from './snakeCase.png';
 
 export const fn = ({ term, actions, display }) => {
     const match = term.match(/(^convert\s)(.*)/);
     if (match) {
         const cmd = match[1];
         const title = `convert: ${match[2]}`;
-        var textToConvert = match[2];
+        var textToConvert = convert.convertToSpaceCase(match[2]);
         const onSelect = (event) => {
         };
-        var textToPrint= convert.convertToCamelCase(textToConvert);
         display([
             {
-                icon: camelCaseIcon,
-                title: `camelCase: ${textToPrint}`,
-                onSelect: () => actions.copyToClipboard(convert.convertToCamelCase(textToConvert)),
-                getPreview: () => convert.convertToCamelCase(textToConvert)
+            icon: camelCaseIcon,
+            title: `camelCase: ${convert.convertToCamelCase(textToConvert)}`,
+            onSelect: () => actions.copyToClipboard(convert.convertToCamelCase(textToConvert)),
+            getPreview: () => convert.convertToCamelCase(textToConvert)
             },
             {
                 icon: icon,
@@ -32,11 +32,12 @@ export const fn = ({ term, actions, display }) => {
                 getPreview: () => convert.convertToKebabCase(textToConvert)
             },
             {
-                icon: icon,
+                icon: snakeCaseIcon,
                 title: `snake_case: ${convert.convertToSnakeCase(textToConvert)}`,
                 onSelect: () => actions.copyToClipboard(convert.convertToSnakeCase(textToConvert)),
                 getPreview: () => convert.convertToSnakeCase(textToConvert)
             }
-        ]);
+            ]
+        );
     };
 };

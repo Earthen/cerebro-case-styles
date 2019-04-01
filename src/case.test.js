@@ -16,3 +16,18 @@ test('converts to pascal case', () => {
     expect(convert.convertToPascalCase('some text to convert')).toBe('SomeTextToConvert');
 });
 
+test('converts snake case to space case', () => {
+    expect(convert.convertToSpaceCase('some_text_to_convert')).toBe('some text to convert');
+});
+
+test('converts kebab case to space case', () => {
+    expect(convert.convertToSpaceCase('some-text-to-convert')).toBe('some text to convert');
+});
+
+test('converts camel case to space case', () => {
+    expect(convert.convertToSpaceCase('someTextToConvert')).toBe('some text to convert');
+});
+
+test('converts pascal case to space case', () => {
+    expect(convert.convertToSpaceCase('SomeTextToConvert')).toBe('some text to convert');
+});
