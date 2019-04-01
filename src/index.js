@@ -36,6 +36,12 @@ export const fn = ({ term, actions, display }) => {
                 title: `snake_case: ${convert.convertToSnakeCase(textToConvert)}`,
                 onSelect: () => actions.copyToClipboard(convert.convertToSnakeCase(textToConvert)),
                 getPreview: () => convert.convertToSnakeCase(textToConvert)
+            },
+            {
+                icon: icon,
+                title: `space case: ${convert.convertToSpaceCase(textToConvert)}`,
+                onSelect: () => actions.copyToClipboard(convert.convertToSpaceCase(textToConvert)),
+                getPreview: () => convert.convertToSpaceCase(textToConvert)
             }
             ]
         );
