@@ -1,29 +1,29 @@
-function convertToSnakeCase(text) {
-    return text.replace(/ /g, '_');
+
+var cases = {};
+
+cases['lower'] = (text) => { return text.toLowerCase(); };
+cases['upper'] = (text) => { return text.toUpperCase(); };
+cases['dot'] = (text) => { return text.replace(/ /g, '.'); };
+cases['snake'] = (text) => { return text.replace(/ /g, '_'); };
+cases['kebab'] = (text) => { return text.replace(/ /g, '-'); };
+cases['pascal'] = (text) => { return toPascal(text);};
+cases['camel'] = (text) => { return toCamel(text); };
+cases['space'] = (text) => { return convertToSpaceCase(text); };
+
+function toCamel(text) {
+    return text.split(' ').map(function(word,index){
+        if(index == 0){
+            return word.toLowerCase();
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join('');
 }
 
-function convertToKebabCase(text) {
-    return text.replace(/ /g, '-');
-}
-
-function isFirstWord(index) {
-    return index == 0;
-}
-
-function convertToCamelCase(text) {
+function toPascal(text) {
 return text.split(' ').map(function(word,index){
-    if(isFirstWord(index)){
-      return word.toLowerCase();
-    }
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   }).join('');
-}
-
-function convertToPascalCase(text) {
-return text.split(' ').map(function(word,index){
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-  }).join('');
-}
+};
 
 function convertToSpaceCase(text) {
     if(text.includes('_')) {
@@ -36,9 +36,5 @@ function convertToSpaceCase(text) {
 }
 
 module.exports = {
-    convertToSnakeCase: convertToSnakeCase,
-    convertToCamelCase: convertToCamelCase,
-    convertToPascalCase: convertToPascalCase,
-    convertToKebabCase: convertToKebabCase,
-    convertToSpaceCase: convertToSpaceCase,
+    cases: cases,
 };
