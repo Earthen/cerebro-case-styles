@@ -12,7 +12,6 @@ export const fn = ({ term, actions, display, update }) => {
         const onSelect = (event) => {
         };
 
-
         display(
             Object.keys(convert.cases).map((key) => {
                 var convertedText = convert.cases[key](textToConvert);
@@ -23,6 +22,7 @@ export const fn = ({ term, actions, display, update }) => {
                 };
             })
         );
+
         console.log(clipboard.readText('selection'));
         let autocomplete = clipboard.readText('selection');
         autocomplete = autocomplete ? `convert ${autocomplete}` : term;

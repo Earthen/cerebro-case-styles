@@ -32,6 +32,11 @@ function convertToSpaceCase(text) {
     if(text.includes('-')) {
         return text.replace(/-/g, ' ');
     }
+
+    if(text.includes('.')) {
+        return text.replace(/./g, ' ');
+    }
+    
     return text.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
 }
 
