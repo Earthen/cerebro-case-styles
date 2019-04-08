@@ -27,16 +27,20 @@ return text.split(' ').map(function(word,index){
 
 function convertToSpaceCase(text) {
     if(text.includes('_')) {
-        return text.replace(/_/g, ' ');
+        return text.replace(/_/g, ' ').toLowerCase();
     }
     if(text.includes('-')) {
-        return text.replace(/-/g, ' ');
+        return text.replace(/-/g, ' ').toLowerCase();
     }
 
     if(text.includes('.')) {
-        return text.replace(/./g, ' ');
+        return text.replace(/./g, ' ').toLowerCase();
     }
-    
+
+    if(text.includes(' ')) {
+        return text.toLowerCase();
+    }
+
     return text.replace(/([A-Z])/g, ' $1').trim().toLowerCase();
 }
 

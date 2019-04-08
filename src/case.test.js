@@ -31,3 +31,7 @@ test('converts camel case to space case', () => {
 test('converts pascal case to space case', () => {
     expect(convert.cases['space']('SomeTextToConvert')).toBe('some text to convert');
 });
+
+test('converts space case to space and lower case', () => {
+    expect(convert.cases['space']('Some Text To Convert')).toBe('some text to convert');
+});
