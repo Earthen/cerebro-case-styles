@@ -1,7 +1,3 @@
-Plugin for cerebro.
-
-At the moment it's activated with "convert" command, and offers different case styles for all 
-the text after the convert command.
 # cerebro-case-style
 
 > [Cerebro](http://www.cerebroapp.com) plugin to convert to case style a text from 
