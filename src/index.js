@@ -9,6 +9,11 @@ export const fn = ({ term, actions, display, update }) => {
 
     const match = term.match(/(^convert\s)(.*)/);
 
+    const pepe = text => {
+        actions.copyToClipboard(text);
+        actions.hideWindow();
+    }
+
     if (match) {
         const cmd = match[1];
         const title = `convert: ${match[2]}`;
@@ -20,7 +25,7 @@ export const fn = ({ term, actions, display, update }) => {
                 id: key,
                 text: convertedText,
                 title: `${key}: ${convertedText}`,
-                onSelect: actions.copyToClipboard,
+                onSelect: pepe,
             };
         });
 
