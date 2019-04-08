@@ -19,9 +19,9 @@ class Preview extends Component {
                 <KeyboardNavItem
                   key={s.id}
                   tagName={'li'}
-                  onSelect={s.onSelect}
+                  onSelect={ () => s.onSelect(s.text)}
                 >
-                  {s.tittle}
+                  {s.title}
                 </KeyboardNavItem>
               ))
             }
@@ -34,7 +34,7 @@ class Preview extends Component {
     const { cases } = this.props
     return (
         <div>
-           {(cases) => this.renderCases(cases )}
+           { this.renderCases(cases)}
         </div>
     )
   }

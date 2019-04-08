@@ -15,13 +15,15 @@ export const fn = ({ term, actions, display, update }) => {
         var textToConvert = convert.cases['space'](match[2]);
 
         let cases = Object.keys(convert.cases).map((key) => {
-            var convertedText = convert.cases[key](textToConvert);
+            let convertedText = convert.cases[key](textToConvert);
             return {
-                id: `${key}`,
+                id: key,
+                text: convertedText,
                 title: `${key}: ${convertedText}`,
-                onSelect: () => actions.copyToClipboard(convertedText),
+                onSelect: actions.copyToClipboard,
             };
         });
+
 
         display({
             id: id,
