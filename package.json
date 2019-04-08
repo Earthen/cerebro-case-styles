@@ -1,7 +1,24 @@
 {
   "name": "cerebro-case-styles",
-  "version": "0.1.0",
-  "dependencies": {
+  "version": "0.1.1",
+  "description": "Cerebro plugin to change text to different cases.",
+  "license": "MIT",
+  "repository": "Earthen/cerebro-case-styles",
+  "contributors": [
+    {
+      "name": "Alejandro Scandroli",
+      "url": "https://github.com/ascandroli/"
+    },
+    {
+      "name": "Daniel Jordi Perez",
+      "url": "https://github.com/archel"
+    },
+    {
+      "name": "Marc Badia Cendros",
+      "url": "https://github.com/alfrheim"
+    }
+  ],
+    "dependencies": {
     "cerebro-tools": "^0.1.8",
     "cerebro-ui": "^0.0.16"
   },
