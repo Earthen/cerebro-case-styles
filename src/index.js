@@ -3,20 +3,20 @@ import Preview from './Preview';
 const convert = require('./converter');
 import { clipboard } from 'electron';
 
-const id = 'convert';
+const id = 'case';
 
 export const fn = ({ term, actions, display, update }) => {
 
-    const match = term.match(/(^convert\s)(.*)/);
+    const match = term.match(/(^case\s)(.*)/);
 
-    const pepe = text => {
+    const copyToClipboard = text => {
         actions.copyToClipboard(text);
         actions.hideWindow();
-    }
+    };
 
     if (match) {
         const cmd = match[1];
-        const title = `convert: ${match[2]}`;
+        const title = `case: ${match[2]}`;
         var textToConvert = convert.cases['space'](match[2]);
 
         let cases = Object.keys(convert.cases).map((key) => {
@@ -25,7 +25,7 @@ export const fn = ({ term, actions, display, update }) => {
                 id: key,
                 text: convertedText,
                 title: `${key}: ${convertedText}`,
-                onSelect: pepe,
+                onSelect: copyToClipboard,
             };
         });
 
@@ -37,9 +37,8 @@ export const fn = ({ term, actions, display, update }) => {
         }
         );
 
-
         let autocomplete = clipboard.readText('selection').trim();
-        autocomplete = autocomplete ? `convert ${autocomplete}` : term;
+        autocomplete = autocomplete ? `case ${autocomplete}` : term;
         update(id, {term: autocomplete});
     };
 };

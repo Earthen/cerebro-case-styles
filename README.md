@@ -8,7 +8,7 @@
 
 ## Usage
 
-In Cerebro, type `convert ` + your text or select the text from clipboard. Move with arrows and Tab keys to select the case style that you want. 
+In Cerebro, type `case ` + your text or select the text from clipboard. Move with arrows and Tab keys to select the case style that you want. 
 Once selected it will be added to the clipboard.
 
 

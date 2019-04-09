@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Loading, KeyboardNav, KeyboardNavItem } from 'cerebro-ui'
-import styles from './styles.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Loading, KeyboardNav, KeyboardNavItem } from 'cerebro-ui';
+import styles from './styles.css';
 
 
 class Preview extends Component {
@@ -31,12 +31,12 @@ class Preview extends Component {
     )
   }
   render() {
-    const { cases } = this.props
+      const { cases } = this.props;
     return (
         <div>
            { this.renderCases(cases)}
         </div>
-    )
+    );
   }
 }
 
@@ -44,4 +44,4 @@ Preview.propTypes = {
   cases: PropTypes.array.isRequired,
 };
 
-export default Preview
+export default Preview;
